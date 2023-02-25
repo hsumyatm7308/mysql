@@ -1,0 +1,108 @@
+=>/comments
+
+Single Line Comment
+# comment here
+-- comment here
+ /* comment here */
+
+ Multi Line Comment 
+
+ /*
+ */
+
+ ..............................................
+
+ => /arutgemthic Operators(5 types)
+
+ Operator                   Meaning                  Operate On
+ + (Add)                    Addition                 Numeric Value  
+ - (Subtract)               Subtraction              Numeric Value  
+ * (Multiply)               Multipliation            Numeric Value  
+ / (Divide)                 Division                 Numeric Value  
+ % (Modulus)                Returns remainder of 
+                            a devision                Numeric Value 
+..............................................................
+
+Exercise Addition Operator    = Syntax
+
+SELECT   -   ဆွဲထုတ် 
+SELECT 10 + 2;    //12
+SELECT '10' + 2; //12
+SELECT '10' + '2'; //12
+SELECT 10+20,20+30; //30  50
+SELECT '100' + 200' + 300;
+SELECT 100 + 'aung aung' ;
+SELECT 'aung aung' + 'kyaw kyaw ' ;  #result 0
+
+
+
+Exercise Subtraction Operator = Syantax
+SELECT 10 - 2 ;
+SELECT 20-10,30-50;
+SELECT '1000' - '500' - '600' ';
+
+
+
+Exercise Multiplication Operate = Syantax 
+SELECT 15 * 20 ;
+SELECT 5*3*4;
+SELECT '100' * '200';
+
+
+
+Exercise Division Operate = Syantax 
+SELECT 15 / 20 ;
+SELECT 5/3*4;
+SELECT '100' / '200';
+SELECT '100' / 200 ,'2000' / '2',12/0 (NULL)
+
+SELECT 50 / 2;
+SELECT 50 DIV 2;
+
+
+
+Exercise Modulus Operate = Syantax 
+SELECT 15 % 20 ;
+SELECT 5/3%4;
+SELECT '100' % '200';
+SELECT '100' % 200 ,'2000' % '2',12%0 (NULL)
+
+SELECT 50 % 2;
+SELECT 50 % 2;
+
+
+
+
+CRUD
+Creat / Read / Update / Delete
+
+CREATE DATABASE - creats a new database
+CREATE TABLE - creats a new table 
+
+တည်ဆောက်ပြီးသား database settingတို့ဘာတို့ ပြင် 
+ALTER DATABASE  - modifies a database  
+
+တည်ဆောက်ပြီးသား tableကိုပြင် 
+ALTER TABLE - modifies a table
+
+
+DROP DATABASE - delete a database
+DROP TABLE - delete a table
+
+INSERT INTo - inserts new data into database
+
+
+table ထဲမှာ ထည့်ထားပြီးသား data info ကိုပြင်
+SELECT - extracts data form database
+UPDATE - updates data in a database
+DELETE - deletes data in a database
+
+
+
+
+
+
+
+
+
+

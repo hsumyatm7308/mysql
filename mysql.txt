@@ -1,0 +1,35 @@
+CRUD process 
+
+create
+read
+update
+delete
+admin
+analysis
+
+
+db2
+1. temporary storage (client side - web broswer) local storage
+2. par storage   (server side)
+
+Sever Side (2 type)
+1. SQL Database  (table type)
+  MySQL  ***
+  PostgraSQL ****
+  SQLite
+  ORACLE  ****
+  MSSQL Sever   **
+  etc...
+
+2. No-SQL Database (object type)
+    Mongodb
+    Redis
+    AWS.....
+
+
+SQL = Structured Query Language
+
+
+only number - INT 
+text and number mix - VARCHAR
+many text - TEXT

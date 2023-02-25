@@ -1,0 +1,80 @@
+
+Choose database
+
+
+=>Show Tables
+SHOW TABLES;
+SHOW FULL TABLES;
+SHOW TABLES FROM databasename;
+SHOW TABLES IN databasename;
+
+SHOW FULL TABLES FROM databasename;
+SHOW FULL TABLES IN databasename;
+
+=>Show Table (one Table)
+Method 1
+DESCRIBE  tablename;
+DESC tablename;
+
+Method 2 
+SHOW COLUMNS FROM tablename;
+*Check table from current db to another db
+SHOW COLUMNS FROM database.tablename;
+SHOW COLUMNS FORM tablename IN databasename;
+
+
+=> Creat Table
+syntax
+
+CREATE TABLE  tablename(
+    column1 datatype,
+    column2 datatype,
+    column 3 datatype,
+    ....
+)
+
+CREATE TABLE persons(
+    personid INT,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    city VARCHAR (255),
+    adderss VARCHAR (255)
+)
+
+
+
+=>Drop Table (single)
+DROP TABLE tablename;   ရှိရှိမရှိရှိဖျက်မယ်
+DROP TABLE IF EXISTS tablename;  ရှိရင်ဖျက်မယ် 
+*Drop table from current db to anoter db
+DROP TABLE databasename.tablename
+DROP TABLE IF EXISTS databasename.tablename;
+
+=>Drop Tables (Multi)
+DROP TABLE tablename,tablename,tablename,.....;   ရှိရှိမရှိရှိဖျက်မယ်
+DROP TABLE IF EXISTS tablename,tablename,tablename,......;  ရှိရင်ဖျက်မယ် 
+*Drop table from current db to anoter db
+DROP TABLE databasename.tablename,databasename.tablename,databasename.tablename,.....;
+DROP TABLE IF EXISTS databasename.tablename,databasename.tablename,databasename.tablename,.....;
+
+.........................................................
+
+Exercise
+
+CREATE TABLE  abc(
+    name VARCHAR(10)
+);
+CREATE TABLE IF NOT EXISTS abc(
+    name VARCHAR(10)
+);
+
+*error
+CREATE TABLE  abc(
+    name VARCHAR(10)
+);
+
+
+25TB 
+
+
+

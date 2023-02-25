@@ -1,0 +1,5 @@
+csv  =  comma seprative value 
+axel file nae open loh ya 
+
+
+file - export import  -- csv 

@@ -1,0 +1,94 @@
+=> Data Types ( Base on Version 8.0)
+
+*String Data Types (types)
+
+Data Types                                                            Description
+1 CHAR(size)                                                         A fixed length string .String (can contain letters,u+numbers and special characters) 0 to 255
+2. VARCHAR(size)                                                     A variable length string    
+3. TEXT                                                              Hold a string with maximun size 68,xxx(65kg)
+4. TINYTEXT                                                           Hold a string with maximun size 255(255bytes)
+5. MEDIUMTEXT                                                           Hold a string with maximun size 68,xxx,xxx(16mb)
+6. LONGTEXT                                                                Hold a string with maximun size 4,xxx,xxx,xxx(4gb)
+
+7. BINARY(size)    Photo tway ko encrypt lote p thame tar             Equal to CHAR(), but stores binary byte string
+8. VARBINARY(size)                                                   Equal to VARCHAR(), but stores binary byte string
+9. TINYBLOB                                                          For BLOBS(binary Large Objects). Max size (255 bytes)
+10 BLOB(size)                                                        For BOLBS (Binary Large Objects).maximum size 68,xxx(65kb)
+11. MEDIUMBLOB                                                        For BLOBS(Binary Large Objects). maximun size 68,xxx,xxx(16mb)
+12. LONGBLOB                                                         For BOLBS(Binary Large Objects). maximun
+
+13. ENUM('val1','val2','val3',....)                                   A string object that can have only one value , chose form a list of possible value
+14. SET ('val1','val2','val3',...)  multi choose                       1 or more value
+
+1bit  = 8bit
+byte   1024byte
+kb
+mb
+gb
+tb 
+.. 
+.....
+......
+=> CHAR  is faster for fixed length text 
+eg telephone numer,zip cod, yes/no y/n male/female M/F
+
+CHAR(4) VS VARCHAR(4)
+
+VALUE           CHAR(4)         STORAGE           VARCHAR(4)          STORAGE
+''              '    '          4 bytes           ''                  1 byte 
+'ab'            'ab  '          4 bytes           'ab'                3 byte 
+'abcd'          'abcd'          4 bytes           'abcd'              5 byte 
+'abcdefg'       'abcd'          4 bytes           'abcdefg'                  8 byte 
+
+------------------------------
+= EXERCISE
+CREATE TABLE IF NOT EXISTS contacts(
+    name CHAR(5),
+    city VARCHAR(10),
+
+);
+
+DESC contacts;
+
+INSERT INTO contacts(name,city)
+VALUES ('aung aung,'mandalay city'), 
+('tar gyi','mawlamyine city'),
+('su su','bago city'),
+('hla hla','pyioolwin city');
+
+
+INSERT INTO contacts(name,city)
+VALUES ('aung,'mandalay), 
+('tar','mawlamyine'),
+('su','bago'),
+('hla','pyioolwin');
+---------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS mytasks(
+    id INT DEFAULT 10,
+    content VARCHAR(50)
+)
+
+DESC  mytasks;
+
+INSERT INTO mytasks(content) VALUES ('hav to cook'),('have to shop');
+
+SELECT * FROM mytasks;
+
+*error
+CREATE TABLE IF NOT EXISTS myjobs(
+    id INT,
+    content VARCHAR(5) DEFAULT('nothing to show')
+);
+
+
+DESC myjobs;
+
+INSERT INTO myjobs(content) VALUE('have to read');
+INSERT INTO myjobs(content) VALUE('read');
+INSERT INTO myjobs(content) VALUE('cook');
+
+error = DATA too long for column 'content' at row 1 
+INSERT INTO myjobs(id) VALUE(1);
+
+28JB 

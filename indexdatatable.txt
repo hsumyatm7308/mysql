@@ -1,0 +1,24 @@
+
+
+CREAT TABLE persons {
+    personid INT,
+    firstname VARCHAR (20),
+    lastname VARCHAR (20),
+    city VARCHAR(15),
+    adderss VARCHAR (200)
+};
+
+DESC persons;
+
+
+INSERT INTO persons (personid,firstname,lastname,city,address)
+VALUE (1,'aung','manaladay','no.9myittar sit);
+
+
+INSERT INTO  persons VALUES (3,'aung','thin ttut','yangon','no 10,thitsar st'); 
+INSERT INTO  persons VALUES (4,'aung','thin ttut','yangon','thitsar st'); 
+INSERT INTO  persons VALUES (3,'aung','thin ttut','yangon','no 10,thitsar st'); 
+INSERT INTO  persons VALUES (3,'maung','zaw','NULL','no 11,sabal st'); 
+
+
+SELECT * FROM person 

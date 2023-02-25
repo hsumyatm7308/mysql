@@ -1,0 +1,166 @@
+
+METHOD 1 
+CREATE TABLE IF NOT EXISTS  persons(
+    id INT NOT NULL PRIMARY KEY,
+    firstname  VARCHAR(255) NOT NULL,
+    last name VARCHAR (255),
+    age INT,
+)
+
+METHOD 2 
+CREATE TABLE IF NOT EXISTS  persons(
+    id INT NOT NULL ,
+    firstname  VARCHAR(255) NOT NULL,
+    last name VARCHAR (255),
+    age INT,
+    PRIMARY KEY (id)
+)
+
+Exercise
+CREATE TABLE IF NOT EXISTS  computers(
+    brand  VARCHAR(255),
+    type VARCHAR(255)
+)
+
+DESC computers;
+
+INSERT INTO  computers(brand,type)
+VALUE ('asus','china'),
+      ('asus','china');
+
+SELECT * FROM computers;
+
+DROP TABBLE IF EXISTS computers;
+
+CREATE TABBLE IF EXISTS computers(
+    brand VARCHAR(255),
+    type VARCHAR(255),
+    PRIMARY KEY (brand)
+);
+
+DESC computers;
+SHOW INDEX FROM  computers;
+
+*error
+INSERT INTO computers(brand,type)
+VALUES ('asus','china'); 
+        ('asus','chia');
+
+INSERT INTO computers(brand,type)
+VALUES ('asus','china'); 
+        ('dell','chia');
+SELECT * FROM computers
+
+
+DROP TABLE IF EXISTS computers;
+
+
+CREATE TABBLE IF NOT EXISTS computers(
+    id NOT NULL PRIMARY KEY,
+    brand VARCHAR(255),
+    type VARCHAR(255),
+);
+
+DESC computers;
+SHOW INDEX FROM computers;
+
+*error
+INSERT INTO  computers(brand,type)
+VALUE ('asus','china');
+
+INSERT INTO computers(id,brand,type)
+VALUE(1,'asus','china');
+
+*error
+INSERT INTO  computers(id ,brand,type)
+VALUE (2,'acer','china');
+
+INSERT INTO computers(id,brand,type)
+VALUE (2,'acer','china');
+
+SELECT * FROM computers;
+
+DROP TABBLE IF EXISTS computers;
+
+
+CREATE TABBLE IF NOT EXISTS computers(
+    id INT NOT NULL AUTO_INCREMENT,
+    brand VARCHAR(255),
+    type VARCHAR(255),
+    PRIMARY KEY(id)
+);
+
+DESC computers;
+SHOW INDEX FROM computers;
+
+INSERT INTO computers(brand,type)
+VALUE ('asus','china');
+
+*error
+INSERT INTO computers(id,brand,type)
+VALUE (1,'asus','china');
+
+INSERT INTO  computers(id,brand,type)
+VALUE (2,'asus','china');
+
+INSERT INTO computers(id,brand,type)
+VALUE ('acer','china');
+
+INSERT INTO computers(id,brand,type)
+VALUE(10,'hp',thai);
+
+INSERT INTO computers(brand,type)
+VALUE('samsaung','korea');
+
+INSERT INTO computers(id,brand,type)
+VALUE(4,'samsaung','korea');
+
+INSERT INTO computers(brand,type)
+VALUE('nokiya',japan'');
+
+SELECT * FROM computers;
+
+
+
+
+
+
+
+
+CREATE TABBLE IF NOT EXISTS members(
+    id INT NULL AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    status VARCHAR(100) NOT NULL DEFAULT 'employed',
+    PRIMARY KEY (id)
+)
+
+DESC members;
+SHOW INDEX FROM members;
+
+INSERT INTO members(
+    firstname,lastname,age,status
+)
+VALUES ('Aye','Mya',25,'employed');
+
+INSERT INTO members(
+    firstname,lastname,age,status
+)
+VALUES ('Hnin','Mya',25);
+
+
+INSERT INTO members VALUES (3,'Yu','Ya',25,'employed');
+
+*error
+INSERT INTO members VALUES ('Bu',"Hta',20)
+
+
+
+
+
+
+
+SELECT * FROM members;
+
+22PI 

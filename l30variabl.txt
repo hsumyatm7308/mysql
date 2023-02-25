@@ -1,0 +1,5 @@
+=>VARIABLES 
+
+1. System Variable 
+2. User Defined Variables 
+3. Parameters and local Variables
