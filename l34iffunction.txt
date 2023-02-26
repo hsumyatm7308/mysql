@@ -1,0 +1,9 @@
+=> If Function 
+=Syntax
+
+IF(condtition,true_value,false_value);
+
+SELECT IF(100 > 20, "TRUE","FALSE");
+SELECT IF(100 < 20, "TRUE","FALSE");
+
+26IF 
