@@ -1,0 +1,52 @@
+=>CHECK()   = constraint - limitting
+
+CREATE TABLE IF NOT EXISTS purchase(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	ordinaryprice decimal(10,2) NOT NULL,
+	sellprice decimal(10,2) NOT NULL
+);
+
+DESC purchase;
+
+INSERT INTO purchase(name,ordinaryprice,sellprice) 
+VALUE('redbull',400,1000);
+
+SELECT * FORM purchase;
+
+INSERT INTO purchase(name,ordinaryprice,sellprice) 
+VALUE('redbull',-300,600);
+
+
+DROP TABLE IF EXISTS purchase;
+
+-----------------------------------------------------
+
+# Limitting -(minus) value
+
+CREATE TABLE IF NOT EXISTS purchase(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	ordinaryprice decimal(10,2) NOT NULL CHECK(ordinaryprice >= 0),
+	sellprice decimal(10,2) NOT NULL CHECK(sellprice >= 0)
+);
+
+DESC purchase;
+
+
+INSERT INTO purchase(name,ordinaryprice,sellprice) 
+VALUES('redbull',400,1000),
+      ('sponsor',200,500);
+
+SELECT * FORM purchase;
+
+# error
+INSERT INTO purchase(name,ordinaryprice,sellprice) 
+VALUE('lipo',-300,600);
+
+
+#error
+INSERT INTO purchase(name,ordinaryprice,sellprice) 
+VALUE('veve',800,9000);
+
+==============================================================================================
