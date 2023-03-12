@@ -149,7 +149,7 @@ VALUE('ma ma','mama@gmail.com',12345,'094444'),
 
 *error = yuyu@gmail.com/0933333 already in record
 INSERT INTO cashiers(name,email,password,phone)
-VALUE('ma ma','yuyu@gmail.com',12345,'0933333'),
+VALUE('ma ma' ,'yuyu@gmail.com',12345,'0933333');
 
 
 
