@@ -1,0 +1,72 @@
+=> References and Cascade
+
+CREATE TABLE IF NOT EXISTS byers(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(20),
+    lastname VARCHAR(20),
+    email VARCHAR(50)
+);
+
+DESC byers;
+
+INSERT INTO byers(firstname,lastname,email)
+VALUE ('aung','aung','aungaung@gmail.com'),
+('maung','maung','maungmaun@gmail.com'),
+('kyaw','kyaw','kyawkyaw@gmail.com'),
+('zaw','zaw','zawzaw@gmail.com'),
+('su','su','susu@gmail.com'),
+('aye','aye','ayeaye@gmail.com'),
+('yu','yu','yuyu@gmail.com');
+
+SELECT * FROM byers;
+
+CREATE TABLE IF NOT EXISTS orders(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orderdate DATE,
+    amount DECIMAL(10,2),
+    byers_id INT 
+)
+
+DESC orders ;
+
+INSERT INTO orders(orderdate,amount,byers_id)
+VALUE ('2023/03/10',99.99,1),
+ ('2023/03/10',20.30,2),
+ ('2023/03/10',50,3),
+ ('2023/03/10',70.25,3);
+
+SELECT * FROM orders(orderdate,amount,byers_id)
+VALUES (2023/04/1',70.25,20);
+
+DELETE FROM byers WHERE id = 7;
+
+SELECT * FROM byers;
+
+DELETE FROM byers WHERE id = 3;
+
+SELECT * FROM byers;
+
+
+SELECT * FROM byers;
+SELECT * FROM orders;
+
+SELECT * FROM byers
+LEFT JOIN orders
+ON byers.id = orders.byers_id;
+
+
+
+
+SELECT * FROM orders
+LEFT JOIN byers
+ON byers.id = orders.byers_id;
+
+SELECT * FROM orders
+LEFT JOIN byers
+ON orders.byers_id = byers_id;
+
+
+25JJ 
+
+
+

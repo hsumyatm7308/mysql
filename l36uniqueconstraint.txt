@@ -1,6 +1,4 @@
-not same auto_increment /// auto_increment is unique and auto increase,
-
-=>UNIQUE Constraint
+=>UNIQUE = Constraint
 
 =Constraints
 PRIMARY KEY
@@ -8,197 +6,258 @@ FOREIGN KEY
 NOT NULL
 UNIQUE
 DEFAULT
-CHECK
+CHECK()
+
 
 
 
 =Syntax ( Single Column )
 
 CREATE TABLE tablename(
-	column1 datatype,
-	column2 datatype UNIQUE,
-	column3 datatype,
-	.....
-	
+	col1 datatype,
+	col2 datatype UNIQUE,
+	col3 datatype,
+	..............
 );
 
 
 
-=Syntax ( Multi Column )
+=Syntax ( Multiple Column )
 
 CREATE TABLE tablename(
-	column1 datatype,
-	column2 datatype ,
-	column3 datatype,
-	.....
-	UNIQUE(column1,column2)
-
+	col1 datatype,
+	col2 datatype,
+	col3 datatype,
+	..............
+	UNIQUE(col1,col2,col3)
 );
 
-------------------------------------------------------
 
-=EXERCISE (single)
+=====================================================
+
+=Exercise 
+
+= Single
+
+
+=Method - 1
+
 
 CREATE TABLE IF NOT EXISTS countries(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL UNIQUE,
-  capital VARCHAR(50) NOT NULL,
-  currencyname VARCHAR(30),
-  isocode VARCHAR(10)
-
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	capital VARCHAR(255) NOT NULL,
+	currencyname VARCHAR(30),
+	isocode VARCHAR(10)
 );
 
 DESC countries;
 SHOW INDEX FROM countries;
 
-//UNI so tr UNIQUE 
+=>DROP UNIQUE KEY
+ALTER TABLE countries DROP INDEX key_name from DB;
 
-=>DROP UNIQUE Key
 ALTER TABLE countries DROP INDEX name;
 
 DESC countries;
-SHOW INDEX FORM countries;
+SHOW INDEX FROM countries;
 
 DROP TABLE IF EXISTS countries;
 
 
-
+=Method - 2
 
 CREATE TABLE IF NOT EXISTS countries(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL UNIQUE,
-  capital VARCHAR(50) NOT NULL,
-  currencyname VARCHAR(30),
-  isocode VARCHAR(10),
-  UNIQUE(name)
-
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NUL,
+	capital VARCHAR(255) NOT NULL,
+	currencyname VARCHAR(30),
+	isocode VARCHAR(10),
+	UNIQUE(name)
 );
 
+
 DESC countries;
+
 SHOW INDEX FROM countries;
 SHOW INDEX IN countries;
 
 
 
 INSERT INTO countries(name,capital,currencyname,isocode)
-VALUES('myanmar','naypyidaw','myanmar kyat','mmk').
-      ('thailand','bangok','thai baht','thb'),
-      ('indonesia','jakata','indonesia rupee','idr'),
-      ('srilanka','colombo','srilanka rupee','lkr');
+VALUES('myanmar', 'naypidaw', 'myanmar kyat', mmk),
+('thailand','bangkok', 'thai bat', 'thb'),
+('indonesia', 'jakata', 'indonesia rupiee', 'idr'),
+('srilanka', 'colombo', 'srilnka rupee', 'lkr');
+
 
 SELECT * FROM countries;
 
-*error
+
+#error 
 INSERT INTO countries(name,capital,currencyname,isocode)
-VALUES ('myanmar','yangon','burmese kyat','kyat');
+VALUES('myanmar', 'yangon', 'myanmar kyat', mmk);
 
-*error
+#error 
 INSERT INTO countries(name,capital,currencyname,isocode)
-VALUES ('Myanmar','yangon','burmese kyat','kyat');
+VALUES('Myanmar', 'yangon', 'myanmar kyat', mmk);
 
-SELECT * FROM countries;
 
-*error
+#error
 UPDATE countries SET name="Thailand" WHERE id=4;
 
-UPDATE countries SET isocode="indor" WHERE id=3;
-SELECT * FROM countries;
+======================================================
 
----------------------------------------------------------
+= Multiple
 
-=Exercise ( Multi )
+
+= Method-1
 
 CREATE TABLE IF NOT EXISTS cashiers(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name VARCHAR(50) NOT NULL,
-	email VARCHAR(50) NOT NULL UNIQUE,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
 	password VARCHAR(100) NOT NULL,
-	phone VARCHAR(15) UNIQUE
-
+	phone VARCHAR(15) UNIQUE,
+	
 );
 
 DESC cashiers;
 SHOW INDEX FROM cashiers;
 
-=>DROP UNIQUE Key
+=>DROP UNIQUE KEY
 ALTER TABLE cashiers DROP INDEX email;
-ALTER TABLE cashiers DROP INDEX password;
+
+ALTER TABLE cashiers DROP INDEX phone;
 
 DESC cashiers;
 SHOW INDEX FROM cashiers;
 
 DROP TABLE IF EXISTS cashiers;
 
+
+= Method-2
+
+CREATE TABLE IF NOT EXISTS cashiers(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(15) UNIQUE,
+	
+);
+
+
 INSERT INTO cashiers(name,email,password,phone)
-VALUE('su su','susu@gmail.com',12345,'0911111'),
-('yu yu', 'yuyu@gmail.com',12345,'0922222'),
-('hla hla','hlahla@gmail.com',12345,
-'0933333'),
-('tun tun','tuntun@gmail.com',12345,'094444');
+VALUES('su su', 'susu@gmail.com', 12345,098888888),
+('yu yu', 'yuyu@gmail.com', 12345,0988888881),
+('mu mu', 'mumu@gmail.com', 12345,0988888882),
+('thu thu', 'thuthu@gmail.com', 12345,0988888883);
+
 
 SELECT * FROM cashiers;
 
 
-*error = susu@gmail.com already in record
+# error
 INSERT INTO cashiers(name,email,password,phone)
-VALUE('ma ma','susu@gmail.com',12345,'0955555'),
+VALUES('ma ma', 'susu@gmail.com', 12345,097777777777);
 
-*error = 094444 already in record
+
+
+# error
 INSERT INTO cashiers(name,email,password,phone)
-VALUE('ma ma','mama@gmail.com',12345,'094444'),
+VALUES('ma ma', 'mama@gmail.com', 12345,098888888);
 
-*error = yuyu@gmail.com/0933333 already in record
+# error
 INSERT INTO cashiers(name,email,password,phone)
-VALUE('ma ma' ,'yuyu@gmail.com',12345,'0933333');
-
-
+VALUES('ma ma', 'susu@gmail.com', 12345,098888888);
 
 ALTER TABLE cashiers DROP INDEX phone;
+
+# can
+INSERT INTO cashiers(name,email,password,phone)
+VALUES('ma ma', 'mama@gmail.com', 12345,098888888);
+
 SHOW INDEX FROM cashiers;
 
-*can 
-INSERT INTO cashiers(name,email,password,phone)
-VALUE('ma ma' ,'mama@gmail.com',12345,'0933333');
-
 SELECT * FROM cashiers;
----------------------------
--
-12UN 
+
+DROP TABLE IF EXIST cashier;
+==================================================================
+
+=>UNIQUE with CONSTRAINT
+
+# Difference difining UNIQUE(email,phone)  and name VARCHAR(255) NOT NULL UNIQUE
+
+CREATE TABLE IF NOT EXIST accountants(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL ,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(20),
+	UNIQUE(email,phone)
+);
+
+DESC accountants;
+SHOW INDEX FROM accountants;
+
+=>DROP UNIQUE KEY
+
+# Error
+ALTER TABLE accountants DROP INDEX phone;
+
+
+DROP TABLE IF EXIST accountants;
+
+CREATE TABLE IF NOT EXIST accountants(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL ,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(20),
+	UNIQUE(email,phone)
+);
+
+
+INSERT INTO accountants(name,email,password,phone)
+VALUES('su su', 'susu@gmail.com', 12345,098888888),
+('yu yu', 'yuyu@gmail.com', 12345,0988888881),
+('mu mu', 'mumu@gmail.com', 12345,0988888882),
+('thu thu', 'thuthu@gmail.com', 12345,0988888883);
+
+SELECT * FROM accountants;
+
+
+# Can = repeat data = Duplicate data even if added UNIQUE Key
+INSERT INTO accountants(name,email,password,phone)
+VALUE('mu mu', 'mumu@gmail.com', 12345,0999992);
+
+# Can
+INSERT INTO accountants(name,email,password,phone)
+VALUE('mu mu', 'mimi@gmail.com', 12345,0988888882);
 
 
 
+#error
+INSERT INTO accountants(name,email,password,phone)
+VALUE('haha', 'mumu@gmail.com', 12345,0988888882);
 
+-------------------------------------------------
 
+CREATE TABLE IF NOT EXIST financeofficers(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL ,
+	password VARCHAR(100) NOT NULL,
+	phone VARCHAR(20),
+	UNIQUE(name)
+	CONSTRAINT uc_email_phone UNIQUE(email,phone)
+);
 
+DESC inanceofficers;
+SHOW INDEX FROM financeofficers;
 
+ALTER TABLE financeofficers DROP INDEX uc_email_phone;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+DROP TABLE IF EXIST financeofficers;
+=============================================
