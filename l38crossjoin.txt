@@ -82,6 +82,11 @@ SELECT * FROM orders;
 SELECT * FROM buyers,orders;
 SELECT * FROM orders,buyers;
 
+
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS buyers;
+
+
 -----------------------
 
-2CR 
+
