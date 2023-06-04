@@ -57,4 +57,31 @@ GROUP BY city;
 
 ----------------------------------
 
-3GP 
+=>Group by call 
+Having Clause
+
+SELECT COUNT(*),city
+FROM customers
+GROUP BY city;
+
+SELECT COUNT(*),city
+FROM customers
+WHERE city LIKE "ma%:
+GROUP BY city;
+
+SELECT COUNT(*),city 
+FROM customers
+GROUP BY city 
+Having city LIKE "ma%"; 
+
+SELECT city,SUM(amount)
+FROM customers 
+GROUP BY city; 
+
+
+SELECT city, SUM(amount)
+FROM customers
+GROUP BY city
+HAVING SUM(amount) > 200000000;
+
+
