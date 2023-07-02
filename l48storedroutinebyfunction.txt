@@ -1,0 +1,135 @@
+SELECT SUM(products.pric * checkouts.qty) AS totalamount 
+FROM checkouts 
+LEFT JOIN procucts 
+ON checkouts.product_id = products.id;
+
+
+
+SELECT SUM(products.price * checkouts.qty)
+INTO result 
+FROM checkouts 
+LEFT JOIN products 
+ON checkout.product_id = products.id; 
+
+
+
+DELIMITER ?? 
+
+CREATE Function totalamount_fun()
+RETURNS DECIMAL DETERMINISTIC 
+BEGIN 
+DECLARE result DECIMAL;
+SELECT SUM(products.price * checkouts.qty)
+INTO result 
+FROM checkouts 
+LEFT JOIN products 
+ON checkout.product_id = products.id; 
+RETURN result 
+
+END // 
+
+DELIMITER;
+
+
+SELECT totalamount_fun();
+
+=>List all function 
+SHOW FUNCTION STATUS WHERE DB = 'wdf008'; 
+
+
+=>Drop Function 
+DROP FUNCTION IF EXISTS totalamount_fun;
+---------------------------------------
+
+=>With Parameter (Single Parameter)
+
+=Total Amount by Product id 
+
+SELECT SUM(products.pric * checkouts.qty) AS totalamount 
+ROM checkouts 
+LEFT JOIN procucts 
+ON checkouts.product_id = products.id;
+WHERE products.id = 2;
+
+
+DELIMITER ?? 
+
+CREATE Function totalamountbyproductid_fun(p_productid INT)
+RETURNS DECIMAL DETERMINISTIC 
+BEGIN 
+DECLARE totalamount DECIMAL;
+
+SELECT SUM(products.pric * checkouts.qty) 
+INTO totalamount
+ROM checkouts 
+LEFT JOIN procucts 
+ON checkouts.product_id = products.id;
+WHERE products.id = p_productid;
+
+RETURN totalamount; 
+
+END; // 
+
+DELIMITER;
+
+
+*error 
+SELECT totalamountbyproductid_fun(); 
+
+
+SELECT totalamountbyproductid_fun(1); 
+SELECT totalamountbyproductid_fun(2); 
+SELECT totalamountbyproductid_fun(3); 
+
+=>List all function 
+SHOW FUNCTION STATUS WHERE DB = 'wdf008'; 
+
+
+-------------------------------------
+
+
+=>With Parameter (Multi Parameter)
+
+=Total Amount by Product id And Payment 
+
+SELECT SUM(products.pric * checkouts.qty) AS totalamount 
+ROM checkouts 
+LEFT JOIN procucts 
+ON checkouts.product_id = products.id;
+WHERE products.id = 1 AND checkouts.payment = "cod";
+
+
+DELIMITER ?? 
+
+CREATE Function totalamoutbypayment_fun(p_productid INT,P_payment VARCHAR(4))
+RETURNS DECIMAL DETERMINISTIC 
+BEGIN 
+DECLARE totalamount DECIMAL;
+
+SELECT SUM(products.pric * checkouts.qty) 
+INTO totalamount
+ROM checkouts 
+LEFT JOIN procucts 
+ON checkouts.product_id = products.id;
+WHERE products.id = p_productid AND checkouts.payment = P_payment;
+
+RETURN totalamount; 
+
+END; // 
+
+DELIMITER;
+
+
+SELECT totalamountbyproductid_fun(1); 
+SELECT totalamountbyproductid_fun(2); 
+SELECT totalamountbyproductid_fun(3); 
+
+SELECT totalamountbyproductid_fun(1,"cod"); 
+SELECT totalamountbyproductid_fun(2,"cod"); 
+SELECT totalamountbyproductid_fun(2,"mpu"); 
+
+=>List all function 
+SHOW FUNCTION STATUS WHERE DB = 'wdf008'; 
+
+
+2FN 
