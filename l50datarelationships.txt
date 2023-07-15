@@ -1,0 +1,104 @@
+=>Data Relationships;
+(i)ONE to ONE Relationship (1:1)
+(ii) ONE to MANY Relationship (1:n)
+(iii)MANY to MANY Relation(n:n)
+
+
+
+DLT Co,ltd 
+
+=>students
+id
+studentid 
+firstname 
+lastname 
+getnder
+dob 
+email 
+password 
+status 1 / 0 
+created_at 
+updated_at 
+
+
+=>studentsinfos 
+id 
+coverphoto 
+profilephoto 
+nrc 
+phone 
+address 
+Student_id (student_pk)fk 
+
+=>subjects 
+id 
+img 
+course 
+subjecttype 
+content 
+requirement
+
+
+
+
+=>teachers 
+id(pk)
+name 
+phone 
+email 
+
+
+=>Classes 
+id 
+subject_id (subject_pk)fk 
+batch
+fee   
+startdate 
+long week 
+starttime 
+endtime 
+teacher_id (teacher_pk) fk 
+
+
+=>attendances 
+id 
+Student_id(student_pk)foreign key 
+attcode  
+remark (note letters)
+created_at 
+
+
+=>datastorages 
+id 
+class_id(class_pk)fk 
+enrollments_id(enrollments_pk)
+created_at 
+
+
+
+
+
+=>enrollments 
+id (pk)
+paymentmethod 
+student_id(student_pk)fk 
+class_id(class_pk)fk 
+status 
+created_at 
+updated_at 
+
+
+=>reviews 
+id 
+rating  (how much stars)
+remark (review letters)
+class_id(class_pk)
+student_id(student_pk)
+
+
+
+dobe 
+over 6 tables 
+
+
+15PP 
