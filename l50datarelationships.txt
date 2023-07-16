@@ -1,25 +1,29 @@
-=>Data Relationships;
-(i)ONE to ONE Relationship (1:1)
-(ii) ONE to MANY Relationship (1:n)
-(iii)MANY to MANY Relation(n:n)
+=>Data Relationships 
+(i)ONE to ONE Relationships (1:1)
+(i)ONE to MANY Relationships (1:n)
+(iii)MANY to MANY Relationships (n:n) 
 
 
+students 1:1  studentsinfos 
+teachers  1:n classes
+enrollment n:n
+reviews n:n
 
-DLT Co,ltd 
 
-=>students
-id
-studentid 
+DLT Co.,Ltd  
+
+=>students 
+id 
+regcode
 firstname 
 lastname 
-getnder
+gender 
 dob 
 email 
-password 
-status 1 / 0 
+password  
+status 
 created_at 
 updated_at 
-
 
 =>studentsinfos 
 id 
@@ -28,77 +32,60 @@ profilephoto
 nrc 
 phone 
 address 
-Student_id (student_pk)fk 
+student_id (students.pk)fk 
 
 =>subjects 
 id 
 img 
 course 
 subjecttype 
-content 
-requirement
-
-
-
+content
+requirement 
 
 =>teachers 
-id(pk)
+id (pk)
 name 
 phone 
 email 
 
-
-=>Classes 
+=>classes 
 id 
-subject_id (subject_pk)fk 
-batch
-fee   
+subject_id(subject_pk)fk 
+batch 
+fee
 startdate 
-long week 
+week 
 starttime 
-endtime 
-teacher_id (teacher_pk) fk 
-
+endtime  
+teacher_id(teachers_pk)fk
 
 =>attendances 
 id 
-Student_id(student_pk)foreign key 
-attcode  
-remark (note letters)
+class_id(classes_pk)fk
+student_id(student_pk)fk 
+attcode 
+remark 
 created_at 
 
-
-=>datastorages 
+=>datastorage 
 id 
-class_id(class_pk)fk 
-enrollments_id(enrollments_pk)
+class_id(classes_pk)fk 
+enrollments_id(enrollments_pk)fk 
 created_at 
-
-
-
-
 
 =>enrollments 
-id (pk)
+id 
 paymentmethod 
 student_id(student_pk)fk 
-class_id(class_pk)fk 
+class_id(classes_pk)fk 
 status 
 created_at 
 updated_at 
 
-
-=>reviews 
+=reviews 
 id 
-rating  (how much stars)
-remark (review letters)
-class_id(class_pk)
-student_id(student_pk)
+rating 
+remark 
+class_id(classes_pk)fk 
+student_id (students.pk)fk 
 
-
-
-dobe 
-over 6 tables 
-
-
-15PP 
