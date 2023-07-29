@@ -1,52 +1,38 @@
-=>Syntax
-CONCAT
+=>CONCAT 
 
-SELECT CONCAT(columnname1,columnname2,....) FROM tablename;
+SELECT CONCAT (columnname1,columnname2,....) FROM tablename;
+--------------------------------------
 
--------------------------------------------------------
+SELECT CONCAT("Hello","World");
+SELECT CONCAT("Hello"," ","World");
+SELECT CONCAT("Hello"," ","World","","We are welcome");
 
-SELECT CONCAT('Hello','World');
-SELECT CONCAT('HELLO','','WORLD');
-SELECT CONCAT('HELLO','....','WORLD');
-SELECT CONCAT('HELLO','..','WORLD','','WE ARE WELCOME');
-
-SELECT CONCAT ('HELLO','12345',23456);   // number to string
-SELECT CONCAT('HELLO','12345');
+SELECT CONCAT('hello',12345);
+SELECT CONCAT('hello','12345');
 SELECT CONCAT(10,20);
 
 SELECT * FROM members;
 
-SELECT  CONCAT(firstname,lastname) FROM members;
-SELECT CONCAT(firstname,'',lastname) FROM members;
+SELECT CONCAT(firstname,lastname) FROM members;
+SELECT CONCAT(firstname," ",lastname) FROM members;
+SELECT CONCAT(firstname," ",lastname) AS fullname,age FROM members;
 
+SELECT firstname AS first,lastname AS last,CONCAT(firstname,'',lastname) AS Fullname,age FROM members;
 
+SELECT firstname AS first,lastname AS last,CONCAT(firstname,'/',lastname) AS Fullname,age FROM members;
 
-SELECT firstname From members;
+SELECT firstname AS first,lastname AS last,CONCAT(firstname,'_',lastname) AS Fullname,age FROM members;
 
-SELECT CONCAT(firstname,' ',lastname) AS fullname FROM members;
-SELECT CONCAT(firstname,' ',lastname) AS fullname,age FROM members;
+=>CONCAT_WS (Concat width Separator)
 
-SELECT firstname As first,lastname AS last,
-CONCAT(firstname,',',lastname) As fullname,age FROM members;
+=>Syntax
+SELECT CONCAT_WS('-',columnname1,columnname2) FROM members;
 
-SELECT firstname AS first,lastname AS last,
-SELECT firstname,'/',lastname) AS fullname,age 
-FROM members;
+=>EXERCISE 
 
--------------------------------
-
-=>CONCAT_WS (Concat with Separator)
-
-=Syntax
-SELECT CONCAT_WS('-',columnname1,columnname2) FROM tablename;
-
-=Exercise
 SELECT CONCAT(firstname,'-',lastname) FROM members;
 SELECT CONCAT_WS('-',firstname,lastname) FROM members;
 SELECT CONCAT(firstname,'-',lastname,'-',age) FROM members;
 SELECT CONCAT_WS('-',firstname,lastname,age) FROM members;
-
-
-
 
 
