@@ -1,0 +1,119 @@
+=> PHP Myadmin 
+
+localhost/phpmyadmin > Click "User account"
+Click "Add user account "
+
+
+user name : User text filed : koaung 
+Host  : Local      : localhost 
+Password :User text filed : password12345 
+Re-type           :password12345 
+
+Authetication Plugin  : Cachaing Sh2 authentication 
+
+Data = Chec All 
+structure = Check All 
+Administrator = Check All 
+Resource limits = 0 0 0 0 
+SSL = REQUIRE NONE 
+
+CLICK "GO" 
+
+-----------------------------------------------------------
+
+
+=>tERMINAL 
+
+linux 
+ctrl+alt+t 
+
+sudo mysql   //mysql has no Password situration 
+
+mysql -u root -p   // -u user name is root. Password is myself 
+or 
+mysql -u root -p 127.0.0.1 //ip address 
+
+
+=>mysql logout 
+exit 
+or 
+\q 
+
+
+
+
+windows 
+windows+r 
+cmd 
+
+=>MYSQL command lin with XAMPP for window 
+cd\
+cd xampp 
+cd mysql 
+cd bin 
+mysql -u root -p 
+or 
+mysql -u root -p 127.0.0.1 //ip address 
+
+
+
+
+=>MYSQL command lin with WAMP for window 
+cd\
+cd wamp  
+cd bin  
+cd mysql  
+mysql -u root -p 
+or 
+mysql -u root -p 127.0.0.1 //ip address 
+
+=>Current user 
+SHOW USER();
+SELECT CURRENT_USER();
+
+=>List all users 
+SELECT USER FROM mysql.user; 
+SELECT USER,HOST FROM mysql.user; 
+
+=>CREATE User 
+
+CREATE USER 'kohtut'@'localhost' IDENTIFIED BY 'password12345@#$'
+or 
+CREATE USER 'kotha'@'localhost' IDENTIFIED with MYSQL_NATIVE_PASSWORD BY 'password12345@#$';
+
+SELECT USER FROM mysql.user; 
+SELECT USER();
+mysql -u kohtut -p
+
+
+=>Change User's Password 
+ALTER USER 'kohtut'@'localhost' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD  by 'password12345@#$';
+
+
+=>Granting a User Permission 
+GRANT ALL PRIVILEGES ON *.* TO 'kohtut'@'localhost' WITH GRANT OPTION ;
+FLUSH PRIVILEGES;
+OR 
+GRANT CREATE,ALTER,DROP,INSERT,UPDATE,DELETE,SELECT,REFRENCES ON *.* TO 'kohtht'@'localhost' WITH GRANT OPTION ;
+FLUSH PRIVILEGES;
+
+
+
+GRANT ALL PRIVILEGES ON hmmdb.* TO 'kohtut'@'localhost' WITH GRANT OPTION ;
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON perumdej.perfume TO 'kohtut'@'localhost' WITH GRANT OPTION ;
+FLUSH PRIVILEGES;
+
+
+=>Review a user's current Permission 
+SHOW GRANT FOR 'kotha'@'localhost';
+
+=>DROP USER
+DROP USER 'kotha'@'localhost'; //root acc phyit nay ya mal 
+
+select user form mysql.user; 
+
+---------------------------------------------------------
+
+19SFN
